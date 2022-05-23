@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}Контакты{% endblock %}
+
+{% block content %}
+    <form action="/contacts/" method="post">
+        <label>Тема:<br><input name="subject" type="text" placeholder="Тема сообщения"></label><br>
+        <label>Email:<br><input name="email" type="email" placeholder="Электронная почта"></label><br>
+        <label>Сообщение:<br><textarea name="message" type="text" placeholder="Ваше сообщение"></textarea></label><br>
+        <input type="submit" value="Отправить">
+    </form>
+{% endblock %}

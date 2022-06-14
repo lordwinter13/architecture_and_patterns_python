@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Зачисление студента{% endblock %}
+
+{% block content %}
+    <h1>Зачисление студента</h1>
+    {% if courses_list and students_list %}
+        <form method="post">
+            <select name="student">
+                {% for item in students_list %}
+                    <option value="{{ item.name }}">{{ item.name }}</option>
+                {% endfor %}
+            </select>
+            <select name="course">
+                {% for item in courses_list %}
+                    <option value="{{ item.name }}">{{ item.name }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit">Зачислить</button>
+        </form>
+    {% elif not courses_list %}
+        <p>Нет курсов для записи</p>
+    {% else %}
+        <p>Нет студентов для записи</p>
+    {% endif %}
+{% endblock %}

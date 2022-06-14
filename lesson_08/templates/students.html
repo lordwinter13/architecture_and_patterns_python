@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Список студентов{% endblock %}
+
+{% block content %}
+    <h1>Список студентов</h1>
+    {% if students_list %}
+        <ul>
+            {% for i in students_list %}
+                <li>
+                    {{i.name}}
+                    {% if i.courses %}
+                        <ul>
+                            {% for course in i.courses %}
+                                <li>{{ course.name }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Студентов нет</p>
+    {% endif %}
+    <p>
+        <a href="/new-student/">Добавить нового студента</a><br>
+        <a href="/enroll-student/">Зачислить студента на курс</a>
+    </p>
+{% endblock %}

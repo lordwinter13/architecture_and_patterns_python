@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Список обращений{% endblock %}
+
+{% block content %}
+    <h1>Список обращений</h1>
+    {% if messages_list %}
+        <div>
+            {% for i in messages_list %}
+                <p>
+                    <div>Email: {{i.email}}</div>
+                    <div>Тема: {{i.subject}}</div>
+                    <div>Сообщение: {{i.message}}</div>
+                </p>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>Нет обращений пользователей</p>
+    {% endif %}
+{% endblock %}

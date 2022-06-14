@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Список курсов - {{category_name}}{% endblock %}
+
+{% block content %}
+    <h1>Список курсов в категории: {{category_name}}</h1>
+    {% if courses_list %}
+        <ul>
+            {% for i in courses_list %}
+                <li>
+                    {{i.name}} ({{i.place}})
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Нет доступных курсов</p>
+    {% endif %}
+    <p>
+        <a href="/new-course/?id={{id}}">Создать курс</a>
+    </p>
+{% endblock %}
